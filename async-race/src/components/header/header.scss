@@ -1,0 +1,18 @@
+@import "../style/base/constants";
+
+.header {
+  &__wrapper{}
+
+  &__logo{}
+
+  &__buttons{}
+
+  &__button{}
+}
+
+.logo {
+  &__text {
+    font-family: $font-family-additional;
+    @include font(normal, 400, 2rem, 150%);
+  }
+}

@@ -7,7 +7,8 @@
     "build": "webpack --mode production",
     "dev": "webpack --mode development",
     "watch": "webpack --mode development --watch",
-    "start": "webpack-dev-server --mode development --open"
+    "start": "webpack-dev-server --mode development --open",
+    "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "author": "Bella Makhova <rgvder@gmail.com>",
   "license": "ISC",

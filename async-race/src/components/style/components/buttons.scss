@@ -1,0 +1,15 @@
+@import "../base/constants";
+
+.button {
+  width: 120px;
+  height: 30px;
+  border-radius: 10px;
+  font-family: $font-family-additional;
+  @include font(normal, 400, 1.2rem, 150%);
+}
+
+.buttonSelect,
+.buttonRemove {
+  color: $color-additional;
+  background: $color-button-gradient;
+}
