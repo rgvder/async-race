@@ -1,15 +1,43 @@
 @import "../base/constants";
 
 .button {
-  width: 120px;
-  height: 30px;
+  width: 100px;
+  height: 25px;
   border-radius: 10px;
   font-family: $font-family-additional;
-  @include font(normal, 400, 1.2rem, 150%);
+  @include font(normal, 400, 1.1rem, 150%);
 }
 
-.buttonSelect,
-.buttonRemove {
+.button-basic {
+  background: $color-button-gradient-basic;
+  color: $color-basic;
+}
+
+.button-additional {
   color: $color-additional;
-  background: $color-button-gradient;
+  background: $color-button-gradient-additional;
+}
+
+.buttonStart,
+.buttonEnd {
+  font-family: $font-family-basic;
+  width: 30px;
+  height: 30px;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid $color-button-border;
+}
+
+.buttonEnd {
+  font-size: 3rem;
+}
+
+.buttonStart {
+  margin-right: 10px;
+}
+
+.buttonSelect {
+  margin-right: 10px;
 }

@@ -5,23 +5,22 @@ import { startCarEngine, switchCarEngine } from '../../controllers/api-services/
 
 export default function initCar(car: Car, container: HTMLElement) {
   let buttonSelect: HTMLButtonElement;
-  let buttonRemove: HTMLButtonElement;
   let buttonStart: HTMLButtonElement;
   let buttonEnd: HTMLButtonElement;
 
   let racer: HTMLElement;
-  let garageContent: HTMLElement;
+  let carContent: HTMLElement;
   let carWrapperId: string | undefined;
   let carId: number;
+  let racerAnimation: Animation;
 
   function createElements(wrapper: HTMLElement): void {
     buttonSelect = wrapper.querySelector('.buttonSelect') as HTMLButtonElement;
-    buttonRemove = wrapper.querySelector('.buttonRemove') as HTMLButtonElement;
     buttonStart = wrapper.querySelector('.buttonStart') as HTMLButtonElement;
     buttonEnd = wrapper.querySelector('.buttonEnd') as HTMLButtonElement;
 
     racer = wrapper.querySelector('.car__racer') as HTMLElement;
-    garageContent = document.querySelector('.garage__content') as HTMLElement;
+    carContent = wrapper.querySelector('.car__container') as HTMLElement;
 
     carWrapperId = (wrapper.firstElementChild as HTMLElement).dataset?.id;
     carId = carWrapperId ? +carWrapperId : NaN;
@@ -33,14 +32,14 @@ export default function initCar(car: Car, container: HTMLElement) {
 
     const start = await startCarEngine({ id: carId, status: 'started' });
 
-    const racerAnimation: Animation = racer.animate(
+    racerAnimation = racer.animate(
       [
         {
           transform: 'translateX(0)',
         },
 
         {
-          transform: `translateX(${garageContent.clientWidth}px)`,
+          transform: `translateX(${carContent.clientWidth}px)`,
         },
       ],
       {
@@ -62,9 +61,9 @@ export default function initCar(car: Car, container: HTMLElement) {
     buttonEnd.setAttribute('disabled', '');
     buttonStart.removeAttribute('disabled');
 
-    racer.getAnimations().forEach((animation: Animation) => animation.pause());
+    racerAnimation.pause();
     await startCarEngine({ id: carId, status: 'stopped' });
-    racer.getAnimations().forEach((animation: Animation) => animation.cancel());
+    racerAnimation.currentTime = 0;
   };
 
   function selectCar(): void {
@@ -73,40 +72,35 @@ export default function initCar(car: Car, container: HTMLElement) {
     }
 
     buttonSelect.addEventListener('click', () => {
-      console.log(carId);
-    });
-  }
+      const updateCarColor: HTMLInputElement = document.querySelector('.update-car__color') as HTMLInputElement;
+      const updateCarName: HTMLInputElement = document.querySelector('.update-car__name') as HTMLInputElement;
+      const buttonUpdateCar: HTMLButtonElement = document.querySelector('.update-car__button') as HTMLButtonElement;
 
-  function removeCar() {
-    if (Number.isNaN(carId)) {
-      return;
-    }
-
-    buttonRemove.addEventListener('click', () => {
-      console.log(carId);
+      if (car) {
+        updateCarColor.value = car.color?.toString() || '';
+        updateCarName.value = car.name?.toString() || '';
+        buttonUpdateCar.dataset.carId = carId.toString();
+        buttonUpdateCar.removeAttribute('disabled');
+        updateCarColor.removeAttribute('disabled');
+        updateCarName.removeAttribute('disabled');
+      }
     });
   }
 
   function startCar(): void {
-    const buttonRace: HTMLButtonElement = document.querySelector('.race') as HTMLButtonElement;
-
     if (Number.isNaN(carId)) {
       return;
     }
 
     buttonStart.addEventListener('click', startCarCallback);
-    buttonRace.addEventListener('click', startCarCallback);
   }
 
   function endCar(): void {
-    const buttonReset: HTMLButtonElement = document.querySelector('.reset') as HTMLButtonElement;
-
     if (Number.isNaN(carId)) {
       return;
     }
 
     buttonEnd.addEventListener('click', endCarCallback);
-    buttonReset.addEventListener('click', endCarCallback);
   }
 
   const elementCar: HTMLElement = ElementBuilder.buildElement(templateCar(car));
@@ -114,7 +108,6 @@ export default function initCar(car: Car, container: HTMLElement) {
   createElements(elementCar);
 
   selectCar();
-  removeCar();
   startCar();
   endCar();
 

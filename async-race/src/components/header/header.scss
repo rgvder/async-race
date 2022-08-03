@@ -1,7 +1,11 @@
 @import "../style/base/constants";
 
 .header {
-  &__wrapper{}
+  &__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   &__logo{}
 
@@ -11,8 +15,48 @@
 }
 
 .logo {
-  &__text {
-    font-family: $font-family-additional;
-    @include font(normal, 400, 2rem, 150%);
+  &__title {
+    font-family: $font-family-logo;
+    color: $color-additional;
+    @include font(normal, 400, 4rem, 150%);
+    letter-spacing: 1.6rem;
+    text-shadow: 0 -40px 100px, 0 0 0, 0 0 1em #BFE2FF, 0 0 0.5em #BFE2FF, 0 0 0.1em #BFE2FF;
+
+    span {
+      animation: logo linear infinite 2s;
+    }
+  }
+}
+
+@keyframes logo {
+  78% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  79%{
+    color: #0b3960;
+  }
+  80% {
+    text-shadow: none;
+  }
+  81% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  82% {
+    color: #0b3960;
+    text-shadow: none;
+  }
+  83% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  92% {
+    color: #0b3960;
+    text-shadow: none;
+  }
+  92.5% {
+    color: inherit;
+    text-shadow: inherit;
   }
 }

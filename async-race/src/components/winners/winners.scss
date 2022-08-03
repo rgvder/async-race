@@ -1,0 +1,25 @@
+@import "../style/base/constants";
+
+.winners {
+  display: none;
+  color: $color-additional;
+  font-family: $font-family-additional;
+  @include font(normal, 400, 1.1rem, 150%);
+
+  &__wrapper {
+  }
+
+  &__table {
+    border: 1px solid $color-additional;
+    border-collapse: collapse;
+
+    th,
+    td {
+      border: 1px solid $color-additional;
+    }
+  }
+}
+
+.hidden .winners {
+  display: block;
+}

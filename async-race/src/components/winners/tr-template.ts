@@ -1,24 +1,11 @@
 import ElementBuilder from '../../controllers/element-builder';
 
-export const templateCar = ElementBuilder.buildTemplate`
-  <div class="car" data-id="${'id'}">
-    <div class="car__options">
-      <div class="car__buttons">
-        <button class="button button-additional buttonSelect">select</button>
-        <button class="button button-additional buttonRemove" data-id="${'id'}">remove</button>
-      </div>
-       <div class="car__wrapper">
-        <div class="car__buttons">
-          <button class="button button-basic buttonStart">▶</button>
-          <button class="button button-basic buttonEnd">■</button>
-        </div>
-        <span class="text">${'name'}</span>
-       </div>
-    </div>
-    <div class="car__container">
-    <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+export const templateTr = ElementBuilder.buildTemplate`
+        <tr>
+            <th>${'number'}</th>
+            <th><?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg class="car__racer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="150" height="92" viewBox="0 0 208 92" xml:space="preserve">
+<svg class="car__racer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100" height="92" viewBox="0 0 208 92" xml:space="preserve">
 <desc>Created with Fabric.js 4.6.0</desc>
 <defs>
 </defs>
@@ -54,5 +41,8 @@ export const templateCar = ElementBuilder.buildTemplate`
 </g>
 </g>
 </svg>
-</div>
-  </div>`;
+</th>
+            <th>${'name'}</th>
+            <th>${'wins'}</th>
+            <th>${'time'}</th>
+        </tr>`;

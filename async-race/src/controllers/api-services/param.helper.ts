@@ -7,9 +7,9 @@ export function convertToString(value: string | number | boolean | number[] | un
   return typeof value === 'string' ? value : value.toString();
 }
 
-export function mapToURLParams(obj: BaseObject): Record<string, string> {
+export function mapToURLParams(obj: BaseObject, isKeyNeedPrefix: boolean = false): Record<string, string> {
   return Object.keys(obj).reduce((params: Record<string, string>, key: string) => ({
     ...params,
-    [key]: convertToString(obj[key]),
+    [!isKeyNeedPrefix ? key : `_${key}`]: convertToString(obj[key]),
   }), {});
 }

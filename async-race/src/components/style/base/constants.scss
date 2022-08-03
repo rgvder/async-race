@@ -2,20 +2,12 @@ $font-family-basic: 'Arial', sans-serif;
 $font-family-logo: 'SEGA LOGO FONT', 'Arial', sans-serif;
 $font-family-additional: 'Press Start 2P', 'Arial', sans-serif;
 
+$color-basic: #000000;
 $color-additional: #FFFFFF;
-
-$color-button-gradient: linear-gradient(274.8deg, #D131D1 -22.68%, #FC417F 38.98%, #F95F1D 106%);
-
-//$color-basic: #1E212C;
-//$color-basic-light: #424551;
-//
-//$color-brand: #17696A;
-//$color-brand-dark: #145C5D;
-//
-//$color-meta: #FFFFFF;
-//
-//$color-additional: #787A80;
-
+$color-road: #2d3334;
+$color-button-gradient-additional: linear-gradient(274.8deg, #D131D1 -22.68%, #FC417F 38.98%, #F95F1D 106%);
+$color-button-gradient-basic: linear-gradient(180deg, #F5BD00 0%, #FFDC1C 100%);
+$color-button-border: #FFE638;
 
 @mixin font($style, $weight, $size, $height) {
   font-style: $style;

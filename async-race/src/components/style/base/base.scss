@@ -33,11 +33,17 @@ body {
 .wrapper {
   margin: 0 auto;
   padding: 0 30px;
-  max-width: 1700px;
+  max-width: 2300px;
 }
 
 .heading {
   color: $color-additional;
   font-family: $font-family-additional;
   @include font(normal, 400, 1.6rem, 150%);
+}
+
+.text {
+  color: $color-additional;
+  font-family: $font-family-additional;
+  @include font(normal, 400, 1.3rem, 150%);
 }

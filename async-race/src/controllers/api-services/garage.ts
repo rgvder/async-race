@@ -19,6 +19,6 @@ export function deleteCar(id: number): Promise<Car> {
   return Loader.delete(`garage/${id}`);
 }
 
-export function updateCar(data: BaseObject, id: number): Promise<Car> {
-  return Loader.put(`garage/${id}`, data);
+export function updateCar(data: BaseObject): Promise<Car> {
+  return Loader.put(`garage/${data.id}`, data);
 }

@@ -13,7 +13,11 @@ export default class Loader {
   }
 
   private static load(url: URL, method: string, data?: BaseObject): Promise<Response> {
-    return fetch(url, { method, body: data ? JSON.stringify(data) : undefined })
+    return fetch(url, {
+      headers: { 'Content-Type': 'application/json' },
+      method,
+      body: data ? JSON.stringify(data) : undefined,
+    })
       .then((res: Response) => Loader.errorHandler(res));
 
     // .catch((err: Error) => console.error(err));
@@ -23,7 +27,7 @@ export default class Loader {
     const query = new URL(url, SERVER);
 
     if (params) {
-      query.search = new URLSearchParams(mapToURLParams(params)).toString();
+      query.search = new URLSearchParams(mapToURLParams(params, true)).toString();
     }
 
     return Loader.load(query, 'GET')

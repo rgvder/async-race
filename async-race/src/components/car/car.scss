@@ -1,9 +1,35 @@
-.car {
+@import "../style/base/constants";
 
-  &__racer {
-    width: 200px;
-    height: 200px;
-    transition-property: transform;
+.car {
+  position: relative;
+  padding-right: 208px;
+  padding-top: 10px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 11px;
+    left: 0;
+    right: 0;
+    height: 25px;
+    transform: skewX(288deg);
+    background-color: $color-road;
+    z-index: 1;
   }
 
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  &__racer {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__buttons {
+    display: flex;
+    margin-right: 15px;
+  }
 }
