@@ -1,6 +1,14 @@
 @import "../style/base/constants";
 
-.pagination__page {
-  font-family: $font-family-additional;
-  color: $color-additional;
+.pagination {
+  padding: 15px 0;
+
+  &__page {
+    padding: 0 5px;
+    font-family: $font-family-additional;
+    color: $color-additional;
+  }
 }
+
+
+

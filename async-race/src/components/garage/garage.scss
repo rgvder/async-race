@@ -1,3 +1,85 @@
+@import "../style/base/constants";
+
 .hidden .garage {
   display: none;
+}
+
+.garage {
+
+}
+
+.options {
+  &__race {
+    padding-bottom: 10px;
+  }
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+
+  &__button {
+    height: 32px;
+  }
+
+  &__wrapper {
+    background-color: $color-additional;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    border-radius: 10px;
+    padding: 0 4px;
+    border: 2px solid $color-additional;
+    transition: border .3s ease-in-out;
+
+    &:focus-within,
+    &:hover {
+      cursor: pointer;
+      border: 2px solid $color-button-border-additional;
+    }
+  }
+
+  &__input {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:disabled {
+      cursor: auto;
+      border-color: $color-additional;
+    }
+
+    &_text {
+      width: 190px;
+      height: 22px;
+      padding: 0 6px;
+      font-family: $font-family-additional;
+      @include font(normal, 400, 1rem, 150%);
+
+    }
+
+    &_color {
+      width: 28px;
+      height: 28px;
+      background: transparent;
+
+      &::-webkit-color-swatch {
+        border-radius: 10px;
+        background: none;
+      }
+    }
+  }
+}
+
+.race,
+.reset {
+  width: 75px;
+  margin-right: 10px;
+}
+
+.generate-cars {
+  width: 165px;
 }

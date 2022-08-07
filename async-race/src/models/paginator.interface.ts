@@ -5,3 +5,8 @@ export interface Paginator extends BaseObject {
   limit: number;
   total?: number;
 }
+
+export interface PaginatorInstance {
+  value: Paginator;
+  update: (paginator: Paginator) => void;
+}

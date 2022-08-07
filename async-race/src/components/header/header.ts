@@ -1,5 +1,6 @@
 import ElementBuilder from '../../controllers/element-builder';
 import { templateHeader } from './template';
+import { renderWinnersPage } from '../winners/winners';
 
 export function initHeader(): void {
   const elementHeader: HTMLElement = ElementBuilder
@@ -18,5 +19,6 @@ export function addStyleHidden() {
 
   buttonWinners.addEventListener('click', () => {
     document.body.classList.add('hidden');
+    renderWinnersPage();
   });
 }

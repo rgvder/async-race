@@ -2,6 +2,7 @@ import { Car } from '../../models/car.interface';
 import ElementBuilder from '../../controllers/element-builder';
 import { templateCar } from './template';
 import { startCarEngine, switchCarEngine } from '../../controllers/api-services/engine';
+import { areAllFinished, isWinner } from '../garage-options/garage-options';
 
 export default function initCar(car: Car, container: HTMLElement) {
   let buttonSelect: HTMLButtonElement;
@@ -31,6 +32,7 @@ export default function initCar(car: Car, container: HTMLElement) {
     buttonEnd.removeAttribute('disabled');
 
     const start = await startCarEngine({ id: carId, status: 'started' });
+    const duration: number = start.distance / start.velocity;
 
     racerAnimation = racer.animate(
       [
@@ -43,16 +45,18 @@ export default function initCar(car: Car, container: HTMLElement) {
         },
       ],
       {
-        duration: start.distance / start.velocity,
+        duration,
         fill: 'forwards',
       },
     );
 
     try {
       await switchCarEngine({ id: carId, status: 'drive' });
+      await isWinner(car, +(duration / 1000).toFixed(2));
     } catch (error) {
       if ((error as Error).message === '500') {
         racerAnimation.pause();
+        areAllFinished();
       }
     }
   };
@@ -61,9 +65,12 @@ export default function initCar(car: Car, container: HTMLElement) {
     buttonEnd.setAttribute('disabled', '');
     buttonStart.removeAttribute('disabled');
 
-    racerAnimation.pause();
+    racerAnimation?.pause();
     await startCarEngine({ id: carId, status: 'stopped' });
-    racerAnimation.currentTime = 0;
+
+    if (racerAnimation) {
+      racerAnimation.currentTime = 0;
+    }
   };
 
   function selectCar(): void {

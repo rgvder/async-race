@@ -6,28 +6,32 @@ export const templateGarage = ElementBuilder.buildTemplate`
       <div class="garage__options">
         <div class="options">
         <div class="option create-car">
-            <input class="option__input-text create-car__name" type="text">
-            <input class="option__input-color create-car__color" type="color" value="#fb00ff">
-            <button class="button option__button create-car__button">Create</button>
+        <div class="option__wrapper">
+            <input class="option__input option__input_text create-car__name" type="text">
+            <input class="option__input option__input_color create-car__color" type="color" value="#fb00ff">
+            </div>
+            <button class="button button-additional option__button create-car__button">Create</button>
           </div>
           <div class="option update-car">
-            <input class="option__input-text update-car__name" type="text">
-            <input class="option__input-color update-car__color" type="color">
-            <button class="button option__button update-car__button">Update</button>
+          <div class="option__wrapper">
+            <input class="option__input option__input_text update-car__name" type="text">
+            <input class="option__input option__input_color update-car__color" type="color">
+          </div>
+            <button class="button button-additional option__button update-car__button">Update</button>
           </div>
         </div>
-        <div class="options_race">
-          <button class="button race">race</button>
-          <button class="button reset">reset</button>
-          <button class="button generate-cars">generate cars</button>
+        <div class="options__race">
+          <button class="button option__button button-basic race">Race</button>
+          <button class="button option__button button-basic reset">Reset</button>
+          <button class="button option__button button-basic generate-cars">Generate cars</button>
         </div>
       </div>
-      <h2 class="heading">garage (<span class="garage__carsTotal"></span>)</h2>
+      <h2 class="heading">GARAGE (<span class="garage__carsTotal"></span>)</h2>
       <div class="garage__content"></div>
       <div class="garage__pagination pagination">
-        <button class="button button-prev">Prev</button>
+        <button class="button button-basic button-prev">Prev</button>
         <span class="pagination__page">${'pageCount'}</span>
-        <button class="button button-next">Next</button>
+        <button class="button button-basic button-next">Next</button>
 </div>
     </div>
   </div>`;

@@ -15,10 +15,10 @@ export function createWinner(data: BaseObject): Promise<Winner> {
   return Loader.post('winners', data);
 }
 
-export function deleteWinner(id: BaseObject): Promise<Winner> {
+export function deleteWinner(id: number): Promise<Winner> {
   return Loader.delete(`winners/${id}`);
 }
 
-export function updateWinner(data: BaseObject, id: BaseObject): Promise<Winner> {
+export function updateWinner(data: BaseObject, id: number): Promise<Winner> {
   return Loader.put(`winners/${id}`, data);
 }

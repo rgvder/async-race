@@ -1,6 +1,7 @@
 @import "../base/constants";
 
 .button {
+  cursor: pointer;
   width: 100px;
   height: 25px;
   border-radius: 10px;
@@ -10,24 +11,43 @@
 
 .button-basic {
   background: $color-button-gradient-basic;
+  border: 4px solid $color-button-border-basic;
   color: $color-basic;
+
+  &:hover {
+    background: $color-button-gradient-basic-reverse;
+  }
+
+  &:active {
+    background: $color-button-gradient-basic;
+  }
+}
+
+.button-basic:disabled {
+  border-color: $color-additional-dark;
 }
 
 .button-additional {
   color: $color-additional;
   background: $color-button-gradient-additional;
+
+  &:hover {
+    background: $color-button-gradient-additional-reverse;
+  }
+
+  &:active {
+    background: $color-button-gradient-additional;
+  }
 }
 
 .buttonStart,
 .buttonEnd {
-  font-family: $font-family-basic;
   width: 30px;
   height: 30px;
   font-size: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 4px solid $color-button-border;
 }
 
 .buttonEnd {
@@ -40,4 +60,15 @@
 
 .buttonSelect {
   margin-right: 10px;
+}
+
+.button:disabled {
+  cursor: auto;
+  color: $color-additional-dark-xl;
+  background: $color-additional-dark;
+}
+
+.button-next,
+.button-prev {
+  height: 32px;
 }

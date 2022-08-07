@@ -5,17 +5,20 @@ import { deleteCar, getCars } from '../../controllers/api-services/garage';
 import { Car } from '../../models/car.interface';
 import {
   createElementCar,
-  generate100Cars,
+  generate100Cars, removeDisabled, setDisabled, setStartCount,
   updateElementCar,
 } from '../garage-options/garage-options';
-import { Paginator } from '../../models/paginator.interface';
-import { addPagination, updatePagination } from '../pagination/pagination';
+import { Paginator, PaginatorInstance } from '../../models/paginator.interface';
+import addPagination from '../pagination/pagination';
+import { deleteWinner } from '../../controllers/api-services/winners';
 import initCar from '../car/car';
 
 const currentPaginator: Paginator = {
   page: 1,
   limit: 7,
 };
+
+let garagePaginator: PaginatorInstance;
 
 export function renderCars(cars: Car[]): void {
   const garageContent: HTMLElement = document.querySelector('.garage__content') as HTMLElement;
@@ -43,11 +46,12 @@ export function renderGaragePage(paginator: Paginator): void {
       updateCarName.value = '';
 
       currentPaginator.total = Math.ceil(cars.total / currentPaginator.limit);
-      updatePagination(currentPaginator);
+      garagePaginator.update(currentPaginator);
     });
 }
 
 export function currentRenderGaragePage() {
+  removeDisabled();
   renderGaragePage(currentPaginator);
 }
 
@@ -57,8 +61,10 @@ function removeCarHandler(): void {
     const carId: string | undefined = eventTarget.dataset.id;
 
     if (carId && eventTarget?.classList?.contains('buttonRemove')) {
-      await deleteCar(+carId);
-      currentRenderGaragePage();
+      deleteWinner(+carId)
+        .catch(() => null)
+        .then(() => deleteCar(+carId))
+        .then(() => currentRenderGaragePage());
     }
   });
 }
@@ -68,7 +74,15 @@ function raceHandler() {
 
   buttonRace.addEventListener('click', () => {
     const buttonsStart: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.buttonStart');
-    buttonsStart.forEach((buttonStart: HTMLButtonElement) => buttonStart.click());
+
+    setStartCount(buttonsStart.length);
+
+    buttonsStart.forEach((buttonStart: HTMLButtonElement) => {
+      buttonStart.click();
+    });
+
+    buttonRace.setAttribute('disabled', '');
+    setDisabled(false);
   });
 }
 
@@ -77,7 +91,9 @@ function resetHandler() {
 
   buttonReset.addEventListener('click', () => {
     const buttonsEnd: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.buttonEnd');
-    buttonsEnd.forEach((buttonEnd) => buttonEnd.click());
+    buttonsEnd.forEach((buttonEnd: HTMLButtonElement) => buttonEnd.click());
+
+    removeDisabled();
   });
 }
 
@@ -89,10 +105,10 @@ export function initGarage(): void {
 
   createElementCar(currentRenderGaragePage);
   generate100Cars(currentRenderGaragePage);
-  addPagination(currentPaginator, renderGaragePage);
   updateElementCar(currentRenderGaragePage);
   removeCarHandler();
   raceHandler();
   resetHandler();
+  garagePaginator = addPagination('.garage', currentPaginator, renderGaragePage);
   renderGaragePage(currentPaginator);
 }

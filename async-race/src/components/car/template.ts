@@ -9,8 +9,8 @@ export const templateCar = ElementBuilder.buildTemplate`
       </div>
        <div class="car__wrapper">
         <div class="car__buttons">
-          <button class="button button-basic buttonStart">▶</button>
-          <button class="button button-basic buttonEnd">■</button>
+          <button class="button button-basic buttonStart"></button>
+          <button class="button button-basic buttonEnd"></button>
         </div>
         <span class="text">${'name'}</span>
        </div>

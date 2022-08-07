@@ -11,16 +11,47 @@
     bottom: 11px;
     left: 0;
     right: 0;
-    height: 25px;
-    transform: skewX(288deg);
-    background-color: $color-road;
+    height: 33px;
+    transform: skewX(303deg);
+    background-color: $color-additional-dark-xl;
+    z-index: 0;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 30px;
+    left: 8px;
+    right: 0;
+    height: 2px;
+    background-image: repeating-linear-gradient(338deg,
+            transparent 0 10px,
+            $color-additional 10px 20px);
     z-index: 1;
+  }
+
+  &__container {
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 51px;
+      right: 0;
+      height: 33px;
+      transform: skewX(303deg);
+      z-index: 1;
+      width: 20px;
+      background: repeating-conic-gradient(from 0deg,
+                      $color-basic 0% 25%, $color-additional 0% 50%)
+              50%/ 10px 10px
+    }
   }
 
   &__wrapper {
     display: flex;
     align-items: center;
-    padding: 10px 0;
+    padding: 10px 0 0;
   }
 
   &__racer {
@@ -32,4 +63,39 @@
     display: flex;
     margin-right: 15px;
   }
+}
+
+.buttonStart {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 6px;
+    border: 7px solid transparent;
+    border-left: 12px solid $color-basic;
+  }
+}
+
+.buttonStart:disabled:before {
+  border-left: 12px solid $color-additional-dark-xl;
+}
+
+.buttonEnd {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 12px;
+    height: 12px;
+    background: $color-basic;
+  }
+}
+
+.buttonEnd:disabled:before {
+  background: $color-additional-dark-xl;
 }
