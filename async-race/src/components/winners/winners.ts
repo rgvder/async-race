@@ -1,12 +1,12 @@
 import ElementBuilder from '../../controllers/element-builder';
-import { templateWinners } from './template';
+import templateWinners from './template';
 import { getWinners } from '../../controllers/api-services/winners';
 import { Winners } from '../../models/winners.interface';
 import { getCar } from '../../controllers/api-services/garage';
 import { BaseObject } from '../../models/base.interface';
 import { Car } from '../../models/car.interface';
 import { Winner } from '../../models/winner.interface';
-import { templateTr } from './tr-template';
+import templateTr from './tr-template';
 import { Paginator, PaginatorInstance } from '../../models/paginator.interface';
 import { SortingWinners } from '../../models/sortingWinners.interface';
 import addPagination from '../pagination/pagination';

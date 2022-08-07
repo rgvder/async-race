@@ -1,6 +1,6 @@
 import ElementBuilder from '../../controllers/element-builder';
 
-export const templateCar = ElementBuilder.buildTemplate`
+const templateCar = ElementBuilder.buildTemplate`
   <div class="car" data-id="${'id'}">
     <div class="car__options">
       <div class="car__buttons">
@@ -16,8 +16,6 @@ export const templateCar = ElementBuilder.buildTemplate`
        </div>
     </div>
     <div class="car__container">
-    <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg class="car__racer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="150" height="92" viewBox="0 0 208 92" xml:space="preserve">
 <desc>Created with Fabric.js 4.6.0</desc>
 <defs>
@@ -56,3 +54,5 @@ export const templateCar = ElementBuilder.buildTemplate`
 </svg>
 </div>
   </div>`;
+
+export default templateCar;

@@ -1,6 +1,6 @@
 import ElementBuilder from '../../controllers/element-builder';
 
-export const templateGarage = ElementBuilder.buildTemplate`
+const templateGarage = ElementBuilder.buildTemplate`
   <div class="garage">
     <div class="wrapper">
       <div class="garage__options">
@@ -35,3 +35,5 @@ export const templateGarage = ElementBuilder.buildTemplate`
 </div>
     </div>
   </div>`;
+
+export default templateGarage;

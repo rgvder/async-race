@@ -1,5 +1,5 @@
 import ElementBuilder from '../../controllers/element-builder';
-import { templateGarage } from './template';
+import templateGarage from './template';
 import { Cars } from '../../models/cars.interface';
 import { deleteCar, getCars } from '../../controllers/api-services/garage';
 import { Car } from '../../models/car.interface';

@@ -4,7 +4,7 @@ import { Car } from '../../models/car.interface';
 import { Winner } from '../../models/winner.interface';
 import { createWinner, getWinner, updateWinner } from '../../controllers/api-services/winners';
 import ElementBuilder from '../../controllers/element-builder';
-import { templatePopup } from '../popup/template';
+import templatePopup from '../popup/template';
 
 export function removeDisabled() {
   const buttonRace: HTMLButtonElement = document.querySelector('.race') as HTMLButtonElement;

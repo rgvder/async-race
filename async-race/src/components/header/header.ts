@@ -1,5 +1,5 @@
 import ElementBuilder from '../../controllers/element-builder';
-import { templateHeader } from './template';
+import templateHeader from './template';
 import { renderWinnersPage } from '../winners/winners';
 
 export function initHeader(): void {

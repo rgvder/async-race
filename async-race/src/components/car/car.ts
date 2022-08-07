@@ -1,6 +1,6 @@
 import { Car } from '../../models/car.interface';
 import ElementBuilder from '../../controllers/element-builder';
-import { templateCar } from './template';
+import templateCar from './template';
 import { startCarEngine, switchCarEngine } from '../../controllers/api-services/engine';
 import { areAllFinished, isWinner } from '../garage-options/garage-options';
 

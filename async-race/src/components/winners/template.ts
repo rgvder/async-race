@@ -1,6 +1,6 @@
 import ElementBuilder from '../../controllers/element-builder';
 
-export const templateWinners = ElementBuilder.buildTemplate`
+const templateWinners = ElementBuilder.buildTemplate`
   <div class="winners hidden">
     <div class="winners__wrapper wrapper">
     <h2 class="heading">WINNERS (<span class="winners__carsTotal"></span>)</h2>
@@ -35,3 +35,5 @@ export const templateWinners = ElementBuilder.buildTemplate`
 </div>
 </div>
   </div>`;
+
+export default templateWinners;

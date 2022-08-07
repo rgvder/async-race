@@ -1,6 +1,6 @@
 import ElementBuilder from '../../controllers/element-builder';
 
-export const templateHeader = ElementBuilder.buildTemplate`
+const templateHeader = ElementBuilder.buildTemplate`
   <header class="header">
     <div class="header__wrapper wrapper">
       <div class="header__buttons">
@@ -12,3 +12,5 @@ export const templateHeader = ElementBuilder.buildTemplate`
       </div>
     </div>
   </header>`;
+
+export default templateHeader;

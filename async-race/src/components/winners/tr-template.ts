@@ -1,6 +1,6 @@
 import ElementBuilder from '../../controllers/element-builder';
 
-export const templateTr = ElementBuilder.buildTemplate`
+const templateTr = ElementBuilder.buildTemplate`
         <tr>
             <td>${'number'}</td>
             <td><?xml version="1.0" encoding="UTF-8" standalone="no" ?>
@@ -46,3 +46,5 @@ export const templateTr = ElementBuilder.buildTemplate`
             <td>${'wins'}</td>
             <td>${'time'}</td>
         </tr>`;
+
+export default templateTr;
