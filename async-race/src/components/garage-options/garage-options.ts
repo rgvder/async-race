@@ -70,7 +70,7 @@ export function updateElementCar(currentRenderPage: () => void): void {
   });
 }
 
-let hasWinner: boolean = false;
+let hasWinner: boolean = true;
 let startCount: number = 0;
 
 export function setStartCount(count: number): void {
