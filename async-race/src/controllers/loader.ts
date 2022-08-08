@@ -19,8 +19,6 @@ export default class Loader {
       body: data ? JSON.stringify(data) : undefined,
     })
       .then((res: Response) => Loader.errorHandler(res));
-
-    // .catch((err: Error) => console.error(err));
   }
 
   public static getPage<T>(url: string, params?: BaseObject): Promise<Page<T>> {

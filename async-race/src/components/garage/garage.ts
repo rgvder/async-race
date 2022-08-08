@@ -50,7 +50,7 @@ export function renderGaragePage(paginator: Paginator): void {
     });
 }
 
-export function currentRenderGaragePage() {
+export function currentRenderGaragePage(): void {
   removeDisabled();
   renderGaragePage(currentPaginator);
 }
@@ -69,7 +69,7 @@ function removeCarHandler(): void {
   });
 }
 
-function raceHandler() {
+function raceHandler(): void {
   const buttonRace: HTMLButtonElement = document.querySelector('.race') as HTMLButtonElement;
 
   buttonRace.addEventListener('click', () => {
@@ -86,7 +86,7 @@ function raceHandler() {
   });
 }
 
-function resetHandler() {
+function resetHandler(): void {
   const buttonReset: HTMLButtonElement = document.querySelector('.reset') as HTMLButtonElement;
 
   buttonReset.addEventListener('click', () => {

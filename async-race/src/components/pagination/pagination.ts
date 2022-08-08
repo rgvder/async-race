@@ -25,7 +25,7 @@ export default function addPagination(
     removeDisabled();
   });
 
-  function updatePagination(paginator: Paginator) {
+  function updatePagination(paginator: Paginator): void {
     const pageCount: HTMLElement = document.querySelector(`${selector} .pagination__page`) as HTMLElement;
 
     currentPaginator = paginator;

@@ -9,7 +9,7 @@ export function initHeader(): void {
   document.body.append(elementHeader);
 }
 
-export function addStyleHidden() {
+export function addStyleHidden(): void {
   const buttonGarage: HTMLButtonElement = document.querySelector('.buttonGarage') as HTMLButtonElement;
   const buttonWinners: HTMLButtonElement = document.querySelector('.buttonWinners') as HTMLButtonElement;
 

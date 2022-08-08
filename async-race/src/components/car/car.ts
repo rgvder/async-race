@@ -95,18 +95,10 @@ export default function initCar(car: Car, container: HTMLElement) {
   }
 
   function startCar(): void {
-    if (Number.isNaN(carId)) {
-      return;
-    }
-
     buttonStart.addEventListener('click', startCarCallback);
   }
 
   function endCar(): void {
-    if (Number.isNaN(carId)) {
-      return;
-    }
-
     buttonEnd.addEventListener('click', endCarCallback);
   }
 

@@ -6,7 +6,7 @@ import { createWinner, getWinner, updateWinner } from '../../controllers/api-ser
 import ElementBuilder from '../../controllers/element-builder';
 import templatePopup from '../popup/template';
 
-export function removeDisabled() {
+export function removeDisabled(): void {
   const buttonRace: HTMLButtonElement = document.querySelector('.race') as HTMLButtonElement;
 
   if (buttonRace.hasAttribute('disabled')) {
@@ -36,13 +36,13 @@ const generateElemCars = (currentRenderPage: () => void) => {
     .then(() => currentRenderPage());
 };
 
-export function createElementCar(currentRenderPage: () => void) {
+export function createElementCar(currentRenderPage: () => void): void {
   const buttonCreate: HTMLButtonElement = document.querySelector('.create-car__button') as HTMLButtonElement;
 
   buttonCreate.addEventListener('click', () => createElemCar(currentRenderPage));
 }
 
-export function generate100Cars(currentRenderPage: () => void) {
+export function generate100Cars(currentRenderPage: () => void): void {
   const buttonGenerateCars: HTMLButtonElement = document.querySelector('.generate-cars') as HTMLButtonElement;
 
   buttonGenerateCars.addEventListener('click', () => {
@@ -73,11 +73,11 @@ export function updateElementCar(currentRenderPage: () => void): void {
 let hasWinner: boolean = false;
 let startCount: number = 0;
 
-export function setStartCount(count: number) {
+export function setStartCount(count: number): void {
   startCount = count;
 }
 
-export function areAllFinished() {
+export function areAllFinished(): void {
   startCount -= 1;
 
   if (!startCount) {
@@ -86,7 +86,7 @@ export function areAllFinished() {
   }
 }
 
-function addPopup(name: string | undefined, time: number) {
+function addPopup(name: string | undefined, time: number): void {
   const elementPopup: HTMLElement = ElementBuilder
     .buildElement(templatePopup({ name, time }));
 
@@ -97,7 +97,7 @@ function addPopup(name: string | undefined, time: number) {
   setTimeout(() => popup.remove(), 3000);
 }
 
-export function setDisabled(force: boolean) {
+export function setDisabled(force: boolean): void {
   hasWinner = force;
   const buttonCreate: HTMLButtonElement = document.querySelector('.create-car__button') as HTMLButtonElement;
   const buttonReset: HTMLButtonElement = document.querySelector('.reset') as HTMLButtonElement;
@@ -113,7 +113,7 @@ export function setDisabled(force: boolean) {
   inputCreateCarColor.toggleAttribute('disabled', !force);
 }
 
-export async function isWinner(car: Car, duration: number) {
+export async function isWinner(car: Car, duration: number): Promise<void> {
   if (!hasWinner) {
     addPopup(car.name, duration);
     setDisabled(true);

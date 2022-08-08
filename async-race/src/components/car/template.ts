@@ -7,13 +7,13 @@ const templateCar = ElementBuilder.buildTemplate`
         <button class="button button-additional buttonSelect">select</button>
         <button class="button button-additional buttonRemove" data-id="${'id'}">remove</button>
       </div>
-       <div class="car__wrapper">
+      <div class="car__wrapper">
         <div class="car__buttons">
           <button class="button button-basic buttonStart"></button>
           <button class="button button-basic buttonEnd"></button>
         </div>
         <span class="text">${'name'}</span>
-       </div>
+     </div>
     </div>
     <div class="car__container">
 <svg class="car__racer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="150" height="92" viewBox="0 0 208 92" xml:space="preserve">

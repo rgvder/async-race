@@ -43,8 +43,7 @@
       z-index: 1;
       width: 20px;
       background: repeating-conic-gradient(from 0deg,
-                      $color-basic 0% 25%, $color-additional 0% 50%)
-              50%/ 10px 10px
+              $color-basic 0% 25%, $color-additional 0% 50%) 50%/ 10px 10px
     }
   }
 

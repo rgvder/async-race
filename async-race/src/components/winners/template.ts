@@ -3,10 +3,10 @@ import ElementBuilder from '../../controllers/element-builder';
 const templateWinners = ElementBuilder.buildTemplate`
   <div class="winners hidden">
     <div class="winners__wrapper wrapper">
-    <h2 class="heading">WINNERS (<span class="winners__carsTotal"></span>)</h2>
-    <table class="winners__table table">
-    <thead>
-        <tr>
+      <h2 class="heading">WINNERS (<span class="winners__carsTotal"></span>)</h2>
+      <table class="winners__table table">
+        <thead>
+          <tr>
             <th class="table__number">№</th>
             <th>Car</th>
             <th class="table__name">Name</th>
@@ -22,18 +22,18 @@ const templateWinners = ElementBuilder.buildTemplate`
                 <span class="table__time_order"></span>
               </div>
             </th>
-        </tr>
-    </thead>
-    <tbody class="table__body">
-      ${'trTemplate'}
-    </tbody>
-    </table>
+          </tr>
+        </thead>
+        <tbody class="table__body">
+          ${'trTemplate'}
+        </tbody>
+      </table>
       <div class="winners__pagination pagination">
         <button class="button button-basic button-prev">Prev</button>
         <span class="pagination__page">${'pageCount'}</span>
         <button class="button button-basic button-next">Next</button>
-</div>
-</div>
+      </div>
+    </div>
   </div>`;
 
 export default templateWinners;

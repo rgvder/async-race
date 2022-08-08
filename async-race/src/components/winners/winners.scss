@@ -21,7 +21,7 @@
     padding: 10px;
   }
 
-  td:nth-child(n + 2) {
+  td:nth-child(n + 4) {
     text-align: center;
   }
 
@@ -50,7 +50,6 @@
     width: 210px;
   }
 }
-
 
 .sort {
   cursor: pointer;

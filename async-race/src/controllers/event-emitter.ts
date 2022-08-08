@@ -5,7 +5,7 @@ export default class EventEmitter {
 
   private static instance: EventEmitter;
 
-  public static init() {
+  public static init(): EventEmitter {
     if (!EventEmitter.instance) {
       EventEmitter.instance = new EventEmitter();
     }

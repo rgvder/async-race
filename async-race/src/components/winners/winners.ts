@@ -35,7 +35,7 @@ function addArrowsSort(sortType: 'wins' | 'time' | 'id'): string {
   return '';
 }
 
-export async function renderWinnersPage(paginator?: Paginator) {
+export async function renderWinnersPage(paginator?: Paginator): Promise<void> {
   const blockWinners: HTMLElement = document.querySelector('.table__body') as HTMLElement;
 
   if (paginator) {
@@ -73,7 +73,7 @@ export async function renderWinnersPage(paginator?: Paginator) {
   winnersPaginator.update(currentPaginator);
 }
 
-function setSorting(eventTarget: HTMLElement, sortType: 'wins' | 'time') {
+function setSorting(eventTarget: HTMLElement, sortType: 'wins' | 'time'): void {
   if (eventTarget.dataset.sort === sortType) {
     if (currentSortingWinners.sort !== sortType) {
       currentSortingWinners.sort = sortType;
