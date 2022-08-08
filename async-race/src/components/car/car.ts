@@ -28,9 +28,7 @@ export default function initCar(car: Car, container: HTMLElement) {
   }
 
   const startCarCallback = async () => {
-    const buttonRace: HTMLButtonElement = document.querySelector('.race') as HTMLButtonElement;
     buttonStart.setAttribute('disabled', '');
-    buttonRace.setAttribute('disabled', '');
     buttonEnd.removeAttribute('disabled');
 
     const start = await startCarEngine({ id: carId, status: 'started' });
